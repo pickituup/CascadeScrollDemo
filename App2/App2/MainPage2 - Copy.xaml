@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App2"
+             x:Class="App2.MainPage2">
+    <AbsoluteLayout
+        x:Name="_root_AbsoluteLayout">
+
+            
+        <local:MyRelativeLayout
+            x:Name="_rootLayout_RelativeLayout"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            TranslationY="76">
+
+            <Grid
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=X,Factor=0,Constant=-76}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=76}" >
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="Auto"/>
+                    <RowDefinition
+                        Height="Auto"/>
+                    <RowDefinition
+                        Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    HeightRequest="70"
+                    Text="First block"
+                    BackgroundColor="LightCoral"
+                    VerticalTextAlignment="Center"/>
+
+                <Label
+                    x:Name="_sticky_Label"
+                    Grid.Row="1"
+                    HeightRequest="40"
+                    Text="Second block"
+                    BackgroundColor="LightCyan"
+                    VerticalTextAlignment="Center"/>
+
+                <local:MyListView
+                    x:Name="_list_ListView"
+                    Grid.Row="2"
+                    InputTransparent="False"
+                    IsPullToRefreshEnabled="True"
+                    BackgroundColor="LightGoldenrodYellow">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell
+                                Text="{Binding}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </local:MyListView>
+            </Grid>
+        </local:MyRelativeLayout>
+        
+        <Label
+            x:Name="_outbut_Label"
+            FontSize="Large"/>
+
+        <Label
+            x:Name="_outbut2_Label"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            AbsoluteLayout.LayoutBounds="0,.25"
+            FontSize="Large"/>
+    </AbsoluteLayout>
+</ContentPage>

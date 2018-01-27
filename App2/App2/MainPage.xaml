@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App2"
+             x:Class="App2.MainPage">
+    
+    <AbsoluteLayout>
+
+        <Grid
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            RowSpacing="0"
+            ColumnSpacing="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="Auto"/>
+                <RowDefinition
+                    Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--<Label
+                Grid.Row="0"
+                Text="Action bar"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"/>-->
+
+            <ContentView
+                Grid.Row="1">
+
+                <ScrollView
+                    x:Name="_rootScroll_ScrollView"
+                    InputTransparent="False">
+                    <Grid
+                        RowSpacing="0"
+                        ColumnSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                x:Name="_firstGridRow_RowDefinition"
+                                Height="Auto"/>
+                            <RowDefinition
+                                x:Name="_secondGridRow_RowDefinition"
+                                Height="Auto"/>
+                            <RowDefinition
+                                x:Name="_thirdGridRow_RowDefinition"
+                                Height="2600"/>
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            x:Name="_firstBlock_Label"
+                            Grid.Row="0"
+                            HeightRequest="40"
+                            BackgroundColor="LightCyan"
+                            Text="First block"/>
+
+                        <Label
+                            x:Name="_secondBlock_Label"
+                            Grid.Row="1"
+                            HeightRequest="40"
+                            BackgroundColor="LightGoldenrodYellow"
+                            Text="Second block"/>
+
+                        <ListView
+                            x:Name="_list_ListView"
+                            Grid.Row="2"
+                            BackgroundColor="LightBlue">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell
+                                        Text="{Binding}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </ScrollView>
+            </ContentView>
+        </Grid>
+
+        <Label
+            x:Name="_stickySecondBlock_Label"
+            IsVisible="False"
+            HeightRequest="40"
+            BackgroundColor="LightGoldenrodYellow"
+            Text="Second block"/>
+    </AbsoluteLayout>
+</ContentPage>
